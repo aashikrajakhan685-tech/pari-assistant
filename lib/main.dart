@@ -60,7 +60,7 @@ class _PariHomeScreenState extends State<PariHomeScreen>
   // ==========================================
   // IMPORTANT: APNI GOOGLE AI STUDIO API KEY YAHAN DAALEN
   // ==========================================
-  final String apiKey = "AQ.Ab8RN6K7F1eCa_lrpxynLSTDmPYw8rWc8uOW5XridBZCRfeXZg"
+final String apiKey = "AQ.Ab8RN6K7F1eca_lrpxynLSTDmPYw8rWc8uOw5XridBZCRFeXZg";
 
   late stt.SpeechToText _speech;
   late FlutterTts _flutterTts;

@@ -22,19 +22,20 @@ jobs:
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.22.x'
           channel: 'stable'
 
-      - name: Generate Android Files
-        run: flutter create . --platforms=android
+      - name: Generate Android App
+        run: flutter create --project-name=pari_assistant --platforms=android .
 
       - name: Get Dependencies
         run: flutter pub get
 
       - name: Build Android APK
-        run: flutter build apk --release
+        run: flutter build apk --debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Pari-AI-Assistant-APK
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-debug.apk

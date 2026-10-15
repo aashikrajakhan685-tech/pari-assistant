@@ -22,11 +22,12 @@ jobs:
       - name: Set up Flutter SDK
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.x'
           channel: 'stable'
 
-      - name: Generate Android App
-        run: flutter create --project-name=pari_assistant --platforms=android .
+      - name: Re-create Android Scaffolding
+        run: |
+          rm -rf android
+          flutter create --project-name=pari_assistant --platforms=android .
 
       - name: Get Dependencies
         run: flutter pub get

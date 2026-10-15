@@ -29,6 +29,14 @@ jobs:
           rm -rf android
           flutter create --project-name=pari_assistant --platforms=android .
 
+      - name: Inject Microphone Permission
+        run: |
+          MANIFEST="android/app/src/main/AndroidManifest.xml"
+          if [ -f "$MANIFEST" ]; then
+            sed -i '/<application/i \    <uses-permission android:name="android.permission.RECORD_AUDIO"/>' "$MANIFEST"
+            sed -i '/<application/i \    <uses-permission android:name="android.permission.INTERNET"/>' "$MANIFEST"
+          fi
+
       - name: Get Dependencies
         run: flutter pub get
 
